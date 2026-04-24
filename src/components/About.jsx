@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { MapPin, Users, Eye, Heart } from 'lucide-react'
+import facadeImage from '../assets/images/about/facade-main.jpg'
 
 function FadeInWhenVisible({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -47,20 +48,21 @@ export default function About() {
     <section id="about" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image placeholder */}
           <FadeInWhenVisible>
             <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary-200 via-primary-100 to-amber-100 shadow-xl">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center px-6">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-primary-700/10 flex items-center justify-center">
-                      <Eye className="w-10 h-10 text-primary-700" />
-                    </div>
-                    <p className="font-heading text-2xl text-primary-800 font-semibold">
-                      La façade majestueuse
-                    </p>
-                    <p className="text-primary-600 text-sm mt-2">de Laourient</p>
-                  </div>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={facadeImage}
+                  alt="Facade de Laourient"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/55 via-primary-900/10 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <p className="font-heading text-2xl text-white font-semibold drop-shadow-lg">
+                    La façade majestueuse
+                  </p>
+                  <p className="text-white/80 text-sm mt-2">de Laourient</p>
                 </div>
               </div>
               {/* Decorative element */}

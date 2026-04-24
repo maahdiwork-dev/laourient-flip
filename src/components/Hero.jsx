@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import heroImage from '../assets/images/hero/hero-main.jpg'
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroImage})`, backgroundPosition: 'center 28%' }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/85 via-primary-800/75 to-primary-950/85" />
       
       {/* Decorative pattern overlay */}
       <div className="absolute inset-0 opacity-10">

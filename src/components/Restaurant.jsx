@@ -9,6 +9,7 @@ import {
   Clock,
   Users,
 } from 'lucide-react'
+import terraceImage from '../assets/images/gallery/02-terrace.jpg'
 
 function FadeInWhenVisible({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -118,12 +119,19 @@ export default function Restaurant() {
                 pour un déjeuner en plein air ou un café à l'ombre.
               </p>
             </div>
-            <div className="md:col-span-2 rounded-2xl overflow-hidden bg-gradient-to-br from-amber-100 via-primary-50 to-cream min-h-[240px] flex items-center justify-center">
-              <div className="text-center px-6">
+            <div className="md:col-span-2 relative rounded-2xl overflow-hidden min-h-[240px] flex items-center justify-center">
+              <img
+                src={terraceImage}
+                alt="Terrasse de Laourient"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-950/75 via-primary-900/55 to-primary-900/25" />
+              <div className="relative z-10 text-center px-6 py-8">
                 <h3 className="font-heading text-2xl font-bold text-primary-800 mb-3">
-                  Cuisine tunisienne & méditerranéenne
+                  <span className="text-white">Cuisine tunisienne & méditerranéenne</span>
                 </h3>
-                <p className="text-primary-700/70 max-w-md mx-auto mb-6">
+                <p className="text-white/85 max-w-md mx-auto mb-6">
                   Des recettes traditionnelles revisitées avec passion par notre chef Mahir, 
                   pour un voyage culinaire inoubliable.
                 </p>

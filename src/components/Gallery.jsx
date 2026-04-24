@@ -1,5 +1,11 @@
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
+import facadeImage from '../assets/images/gallery/01-facade.jpg'
+import terraceImage from '../assets/images/gallery/02-terrace.jpg'
+import skyTerrasseImage from '../assets/images/gallery/03-skyterrasse.jpg'
+import poolImage from '../assets/images/gallery/04-pool.jpg'
+import roomOrientImage from '../assets/images/gallery/05-room-orient.jpg'
+import gardenImage from '../assets/images/gallery/06-garden.jpg'
 
 function FadeInWhenVisible({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -19,39 +25,33 @@ function FadeInWhenVisible({ children, delay = 0 }) {
 const galleryItems = [
   {
     title: 'Façade du restaurant',
-    gradient: 'from-primary-400 via-primary-500 to-amber-500',
+    image: facadeImage,
     size: 'col-span-2 row-span-2',
-    icon: '🏛️',
   },
   {
     title: 'Terrasse ensoleillée',
-    gradient: 'from-amber-300 via-yellow-400 to-orange-400',
+    image: terraceImage,
     size: 'col-span-1 row-span-1',
-    icon: '☀️',
   },
   {
     title: 'SkyTerrasse',
-    gradient: 'from-primary-600 via-primary-700 to-charcoal',
+    image: skyTerrasseImage,
     size: 'col-span-1 row-span-1',
-    icon: '🌙',
   },
   {
     title: 'Piscine',
-    gradient: 'from-cyan-400 via-blue-400 to-primary-400',
+    image: poolImage,
     size: 'col-span-1 row-span-1',
-    icon: '🏊',
   },
   {
     title: 'Chambre Orient',
-    gradient: 'from-amber-600 via-primary-600 to-primary-800',
+    image: roomOrientImage,
     size: 'col-span-1 row-span-1',
-    icon: '🛏️',
   },
   {
     title: 'Jardin',
-    gradient: 'from-green-400 via-emerald-400 to-primary-400',
+    image: gardenImage,
     size: 'col-span-2 row-span-1',
-    icon: '🌿',
   },
 ]
 
@@ -81,16 +81,17 @@ export default function Gallery() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className={`relative rounded-2xl overflow-hidden bg-gradient-to-br ${item.gradient} ${item.size} group cursor-pointer shadow-sm hover:shadow-xl transition-shadow`}
+                className={`relative rounded-2xl overflow-hidden ${item.size} group cursor-pointer shadow-sm hover:shadow-xl transition-shadow`}
               >
-                {/* Pattern overlay */}
-                <div className="absolute inset-0 bg-black/5" />
-                
-                {/* Icon */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                  <span className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform">
-                    {item.icon}
-                  </span>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
+
+                <div className="absolute inset-0 flex flex-col items-start justify-end p-4 sm:p-5 text-white">
                   <h3 className="font-heading text-sm sm:text-base font-bold text-white/90 drop-shadow-lg">
                     {item.title}
                   </h3>
